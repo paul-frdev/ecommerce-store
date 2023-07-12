@@ -3,13 +3,14 @@ import { FC } from 'react';
 import getCategory from '@/actions/getCategory';
 import getColors from '@/actions/getColors';
 import getProducts from '@/actions/getProducts';
+import Filter from '@/components/filter';
 import getSizes from '@/actions/getSizes';
+import MobileFilters from '@/components/mobileFilters';
+
 import { Container } from '@/components/ui/container';
 import { Billboard } from '@/components/billboard';
-import Filter from '@/components/filter';
 import { NoResults } from '@/components/ui/noResults';
 import { ProductCard } from '@/components/ui/productCard';
-import MobileFilters from '@/components/mobileFilters';
 
 interface CategoryPageProps {
   params: {

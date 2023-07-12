@@ -1,10 +1,11 @@
+import { FC } from 'react';
+
 import getProduct from '@/actions/getProduct';
 import getProducts from '@/actions/getProducts';
 import { Gallery } from '@/components/gallery';
 import { Info } from '@/components/info';
 import { ProductList } from '@/components/productList';
 import { Container } from '@/components/ui/container';
-import { FC } from 'react';
 
 interface ProductPageProps {
   params: {
