@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { Image as ImageType } from '@/types'
-import { Tab } from '@headlessui/react'
-import { FC } from 'react'
-import { GalleryTab } from './galleryTab'
-import Image from 'next/image'
+import { Image as ImageType } from '@/types';
+import { Tab } from '@headlessui/react';
+import { FC } from 'react';
+import { GalleryTab } from './galleryTab';
+import Image from 'next/image';
 
 interface GalleryProps {
-  images: ImageType[]
+  images: ImageType[];
 }
 export const Gallery: FC<GalleryProps> = ({ images }) => {
   return (
@@ -21,7 +21,7 @@ export const Gallery: FC<GalleryProps> = ({ images }) => {
       </div>
       <Tab.Panels className='aspect-square w-full'>
         {images.map((image) => (
-          <Tab.Panel key={image.id} >
+          <Tab.Panel key={image.id}>
             <div className='aspect-square relative h-full w-full sm:rounded-lg overflow-hidden'>
               <Image
                 fill
@@ -34,5 +34,5 @@ export const Gallery: FC<GalleryProps> = ({ images }) => {
         ))}
       </Tab.Panels>
     </Tab.Group>
-  )
-}
+  );
+};

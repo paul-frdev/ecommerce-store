@@ -1,14 +1,13 @@
-'use client'
+'use client';
 
-import { Product } from '@/types'
-import React, { FC } from 'react'
-import { Currency } from './ui/currency'
-import { Button } from './ui/button'
-import { ShoppingCart } from 'lucide-react'
-
+import { Product } from '@/types';
+import React, { FC } from 'react';
+import { Currency } from './ui/currency';
+import { Button } from './ui/button';
+import { ShoppingCart } from 'lucide-react';
 
 interface InfoProps {
-  data: Product
+  data: Product;
 }
 export const Info: FC<InfoProps> = ({ data }) => {
   return (
@@ -26,7 +25,8 @@ export const Info: FC<InfoProps> = ({ data }) => {
           </div>
           <div className='flex items-stretch gap-4'>
             <h3 className='font-semibold text-black'>Color</h3>
-            <div className='h-6 w-6 rounded-full border border-gray-600'
+            <div
+              className='h-6 w-6 rounded-full border border-gray-600'
               style={{ backgroundColor: data.color.value }}
             />
           </div>
@@ -34,10 +34,10 @@ export const Info: FC<InfoProps> = ({ data }) => {
         <div className='mt-10 flex items-center justify-center gap-x-3'>
           <Button className='flex items-center justify-between gap-x-2'>
             Add to Card
-            <ShoppingCart size={20}/>
+            <ShoppingCart size={20} />
           </Button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

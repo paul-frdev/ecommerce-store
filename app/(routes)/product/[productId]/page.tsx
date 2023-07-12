@@ -6,19 +6,17 @@ import { ProductList } from '@/components/productList';
 import { Container } from '@/components/ui/container';
 import { FC } from 'react';
 
-
 interface ProductPageProps {
   params: {
     productId: string;
-  }
+  };
 }
 const ProductPage: FC<ProductPageProps> = async ({ params }) => {
-
-  const product = await getProduct(params.productId)
+  const product = await getProduct(params.productId);
 
   const suggestedProducts = await getProducts({
-    categoryId: product?.category?.id
-  })
+    categoryId: product?.category?.id,
+  });
   return (
     <div className='bg-white '>
       <Container>
@@ -36,7 +34,7 @@ const ProductPage: FC<ProductPageProps> = async ({ params }) => {
         </div>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default ProductPage
+export default ProductPage;

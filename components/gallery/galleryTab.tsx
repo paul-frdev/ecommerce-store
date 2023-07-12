@@ -1,12 +1,11 @@
-import { cn } from '@/lib/utils'
-import { Image as ImageType } from '@/types'
-import { Tab } from '@headlessui/react'
-import Image from 'next/image'
-import React, { FC } from 'react'
-
+import { cn } from '@/lib/utils';
+import { Image as ImageType } from '@/types';
+import { Tab } from '@headlessui/react';
+import Image from 'next/image';
+import React, { FC } from 'react';
 
 interface GalleryTabProps {
-  image: ImageType
+  image: ImageType;
 }
 export const GalleryTab: FC<GalleryTabProps> = ({ image }) => {
   return (
@@ -21,11 +20,16 @@ export const GalleryTab: FC<GalleryTabProps> = ({ image }) => {
               className='object-cover object-center'
             />
           </span>
-          <span className={cn(`
+          <span
+            className={cn(
+              `
           absolute inset-0 rounded-md ring-2 ring-offset-2
-          `, selected ? 'ring-black' : 'ring-transparent')} />
+          `,
+              selected ? 'ring-black' : 'ring-transparent'
+            )}
+          />
         </div>
       )}
     </Tab>
-  )
-}
+  );
+};
