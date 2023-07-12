@@ -13,8 +13,6 @@ interface MainNavProps {
 const MainNav: FC<MainNavProps> = ({ data }) => {
   const pathname = usePathname();
 
-  console.log('data', data);
-
   const routes = data.map((route) => ({
     href: `/category/${route.id}`,
     label: route.name,
