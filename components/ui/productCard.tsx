@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { Product } from '@/types'
+import { Product } from '@/types';
 import Image from 'next/image';
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 import { IconButton } from './iconButton';
-import { Expand, ShoppingCart } from 'lucide-react'
+import { Expand, ShoppingCart } from 'lucide-react';
 import { Currency } from './currency';
 
 interface ProductCardProps {
@@ -15,16 +15,21 @@ export const ProductCard: FC<ProductCardProps> = ({ data }) => {
     <div className='bg-white cursor-pointer group rounded-xl border p-3 space-y-4 '>
       {/* images and actions */}
       <div className='aspect-square rounded-xl bg-gray-100 relative'>
-        <Image alt='Image' src={data?.images?.[0]?.url} fill className='aspect-square object-cover rounded-md' />
+        <Image
+          alt='Image'
+          src={data?.images?.[0]?.url}
+          fill
+          className='aspect-square object-cover rounded-md'
+        />
         <div className='opacity-0 group-hover:opacity-100 transition absolute w-full px-6 bottom-5'>
           <div className='flex gap-x-6 justify-center'>
             <IconButton
-              onClick={() => { }}
+              onClick={() => {}}
               icon={<Expand size={20} />}
               className='text-gray-600'
             />
             <IconButton
-              onClick={() => { }}
+              onClick={() => {}}
               icon={<ShoppingCart size={20} />}
               className='text-gray-600'
             />
@@ -41,5 +46,5 @@ export const ProductCard: FC<ProductCardProps> = ({ data }) => {
         <Currency value={data.price} />
       </div>
     </div>
-  )
-}
+  );
+};

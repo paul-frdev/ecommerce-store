@@ -1,12 +1,11 @@
 import { Product } from '@/types';
-import React, { FC } from 'react'
+import React, { FC } from 'react';
 import { NoResults } from './ui/noResults';
 import { ProductCard } from './ui/productCard';
 
-
 interface ProductListProps {
   title: string;
-  items: Product[]
+  items: Product[];
 }
 export const ProductList: FC<ProductListProps> = ({ title, items }) => {
   return (
@@ -19,5 +18,5 @@ export const ProductList: FC<ProductListProps> = ({ title, items }) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};

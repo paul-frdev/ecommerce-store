@@ -1,13 +1,13 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react';
+import Link from 'next/link';
 
-import { Container } from './ui/container'
-import MainNav from './mainNav'
-import getCategories from '@/actions/getCategories'
-import { NavbarActions } from './navbarActions'
+import { Container } from './ui/container';
+import MainNav from './mainNav';
+import getCategories from '@/actions/getCategories';
+import { NavbarActions } from './navbarActions';
 
 const NavBar = async () => {
-  const categories = await getCategories()
+  const categories = await getCategories();
 
   return (
     <div className='border-b'>
@@ -21,7 +21,7 @@ const NavBar = async () => {
         </div>
       </Container>
     </div>
-  )
-}
+  );
+};
 
 export default NavBar;

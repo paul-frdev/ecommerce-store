@@ -1,12 +1,11 @@
-'use client'
-import { Billboard as BillboardType } from '@/types'
-import React, { FC } from 'react'
+'use client';
+import { Billboard as BillboardType } from '@/types';
+import React, { FC } from 'react';
 
 interface BillboardProps {
-  data: BillboardType
+  data: BillboardType;
 }
 export const Billboard: FC<BillboardProps> = ({ data }) => {
-
   return (
     <div className='p-4 sm:p-6 lg:p-8 rounded-xl overflow-hidden'>
       <div
@@ -20,5 +19,5 @@ export const Billboard: FC<BillboardProps> = ({ data }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
