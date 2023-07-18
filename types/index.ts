@@ -7,6 +7,7 @@ export interface Billboard {
 export interface Category {
   id: string;
   name: string;
+  imageUrl: string;
   billboard: Billboard;
 }
 
@@ -16,6 +17,10 @@ export interface Product {
   name: string;
   price: string;
   isFeatured: boolean;
+  isDiscount: boolean;
+  description: string;
+  options: string;
+  priceDiscount: string;
   size: Size;
   color: Color;
   images: Image[];

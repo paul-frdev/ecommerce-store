@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { Container } from './ui/container';
-import MainNav from './mainNav';
 import getCategories from '@/actions/getCategories';
+
+import { Container } from './ui/container';
 import { NavbarActions } from './navbarActions';
+import { MainNav } from './mainNav';
 
 const NavBar = async () => {
   const categories = await getCategories();

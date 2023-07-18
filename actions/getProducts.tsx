@@ -9,6 +9,7 @@ interface Query {
   colorId?: string;
   sizeId?: string;
   isFeatured?: boolean;
+  isDiscount?: boolean;
 }
 const getProducts = async (query: Query): Promise<Product[]> => {
   const url = qs.stringifyUrl({
@@ -18,6 +19,7 @@ const getProducts = async (query: Query): Promise<Product[]> => {
       sizeId: query.sizeId,
       categoryId: query.categoryId,
       isFeatured: query.isFeatured,
+      isDiscount: query.isDiscount
     },
   });
 

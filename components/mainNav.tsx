@@ -1,39 +1,54 @@
-'use client';
+'use client'
 
-import React, { FC } from 'react';
+import { Category } from '@/types';
+import React, { FC } from 'react'
+import { Button } from './ui/button';
+import { DepartmentsPopover } from './DepartmentsPopover';
+import { DepartmentItem } from './departmentItem';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
-import { Category } from '@/types';
 
-interface MainNavProps {
+
+interface mainNavProps {
   data: Category[];
 }
 
-const MainNav: FC<MainNavProps> = ({ data }) => {
-  const pathname = usePathname();
 
-  const routes = data.map((route) => ({
-    href: `/category/${route.id}`,
-    label: route.name,
-    active: pathname === `/category/${route.id}`,
-  }));
+export const MainNav: FC<mainNavProps> = ({ data }) => {
+
+  const pathname = usePathname()
+
+  const routes = [
+    {
+      name: 'Sales and Discounts',
+      href: '/sales',
+      active: pathname === '/sales'
+    },
+    {
+      name: 'Contact us',
+      href: '/contact-us',
+      active: pathname === '/contact-us'
+    },
+    {
+      name: 'About us',
+      href: '/about-us',
+      active: pathname === '/about-us'
+    },
+  ]
   return (
-    <nav className='mx-6 flex items-center space-x-4 lg:space-x-6'>
-      {routes.map((route) => (
-        <Link
-          className={cn(
-            'text-sm font-medium transition-colors hover:text-black',
-            route.active ? 'text-black' : 'text-neutral-500'
-          )}
-          href={route.href}
-          key={route.href}
-        >
-          {route.label}
-        </Link>
-      ))}
-    </nav>
-  );
-};
-
-export default MainNav;
+    <div className='flex justify-between items-center w-full px-8'>
+      <DepartmentsPopover content={<DepartmentItem data={data} />} >
+        <Button className='bg-transparent text-neutral-900' >Departments</Button>
+      </DepartmentsPopover>
+      <nav>
+        <ul className='flex justify-between items-center'>
+          {routes.map((route) => (
+            <li key={route.href} className='text-neutral-800 font-normal text-lg mr-8 hover:text-neutral-500 transition' >
+              <Link href={route.href}>{route.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  )
+}
