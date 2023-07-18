@@ -30,12 +30,12 @@ export const DepartmentsPopover: React.FC<PopoverProps> = ({ content, children }
         <div
           style={{
             top: '100%',
-            left: '50%',
+            left: '237%',
             transform: 'translateX(-50%)',
             boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
             zIndex: 9999,
           }}
-          className='max-w-[1150px] w-full p-2 border-[2px] rounded absolute min-h-[200px] h-full'
+          className='w-[600px] grid grid-cols-3 grid-rows-2 items-center justify-center bg-white p-2 border-[1px] rounded absolute  h-[350px]'
         >
           {content}
         </div>

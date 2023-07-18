@@ -8,9 +8,9 @@ import getSizes from '@/actions/getSizes';
 import MobileFilters from '@/components/mobileFilters';
 
 import { Container } from '@/components/ui/container';
-import { Billboard } from '@/components/billboard';
 import { NoResults } from '@/components/ui/noResults';
 import { ProductCard } from '@/components/ui/productCard';
+import Billboard from '@/components/ui/billboard';
 
 interface CategoryPageProps {
   params: {

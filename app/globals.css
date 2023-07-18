@@ -7,3 +7,11 @@ body,
 :root {
   height: 100%;
 }
+
+.react-multi-carousel-list {
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1150px !important;
+}

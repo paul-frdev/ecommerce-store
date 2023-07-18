@@ -1,6 +1,13 @@
+export interface MainSliders {
+  id: string;
+  title: string;
+  images: [{ id: string; url: string }];
+  imageUrl: string;
+}
+
 export interface Billboard {
   id: string;
-  label: string;
+  title: string;
   imageUrl: string;
 }
 
@@ -8,7 +15,7 @@ export interface Category {
   id: string;
   name: string;
   imageUrl: string;
-  billboard: Billboard;
+  billboard: MainSliders;
 }
 
 export interface Product {
