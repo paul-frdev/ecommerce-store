@@ -9,11 +9,13 @@ import { Currency } from './currency';
 import { useRouter } from 'next/navigation';
 import usePreviewModal from '@/hooks/usePreviewModal';
 import useCart from '@/hooks/useCart';
+import { cn } from '@/lib/utils';
 
 interface ProductCardProps {
   data: Product;
+  className?: string;
 }
-export const ProductCard: FC<ProductCardProps> = ({ data }) => {
+export const ProductCard: FC<ProductCardProps> = ({ data, className }) => {
   const previewModal = usePreviewModal();
   const cart = useCart();
 
@@ -37,7 +39,10 @@ export const ProductCard: FC<ProductCardProps> = ({ data }) => {
   return (
     <div
       onClick={handleClick}
-      className='bg-white cursor-pointer group rounded-xl border p-3 space-y-4 '
+      className={cn(
+        `bg-white cursor-pointer group rounded-xl border p-3 space-y-4 `,
+        className
+      )}
     >
       {/* images and actions */}
       <div className='aspect-square rounded-xl bg-gray-100 relative'>
@@ -69,7 +74,7 @@ export const ProductCard: FC<ProductCardProps> = ({ data }) => {
       </div>
       {/* Price */}
       <div className='flex items-cente justify-between'>
-        <Currency value={data.price} />
+        <Currency data={data} isDiscount={data.isDiscount} />
       </div>
     </div>
   );

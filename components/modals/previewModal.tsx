@@ -2,7 +2,7 @@
 
 import usePreviewModal from '@/hooks/usePreviewModal';
 import React from 'react';
-import { Modal } from '../modal';
+import { Modal } from './modal';
 import { Gallery } from '../gallery';
 import { Info } from '../info';
 

@@ -1,17 +1,14 @@
-'use client'
+'use client';
 
-import { Category } from '@/types'
-import Image from 'next/image'
-import { usePathname } from 'next/navigation'
-import React, { FC } from 'react'
-
+import { Category } from '@/types';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import React, { FC } from 'react';
 
 interface DepartmentItemProps {
-  data: Category[]
+  data: Category[];
 }
 export const DepartmentItem: FC<DepartmentItemProps> = ({ data }) => {
-
-
   const pathname = usePathname();
 
   const routes = data.map((route) => ({
@@ -21,23 +18,31 @@ export const DepartmentItem: FC<DepartmentItemProps> = ({ data }) => {
     active: pathname === `/category/${route.id}`,
   }));
 
-
   return (
-    <div className='department-item w-[100px] h-[150px m-auto pt-8'>
+    <div className='department-item grid grid-cols-3 grid-rows-2 items-center gap-4 max-w-[350px] w-full mt-auto mb-auto mr-auto'>
       {routes.map((item) => (
-        <a
-          key={item.href}
-          href={item.href}
-          className="m-auto flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
-        >
-          <div className="m-auto flex flex-col justify-center items-center gap-y-4 p-4">
-            <Image width={100} height={150} alt='Iamge' className='object-cover object-center' src={item.imageUrl} />
-            <p className="text-sm font-medium text-gray-900">
-              {item.label}
-            </p>
-          </div>
-        </a>
+        <div key={item.href} className='w-[120px] h-[150px] m-auto'>
+          <a
+            href={item.href}
+            className='m-auto flex items-center rounded-lg p-2 transition duration-150 ease-in-out'
+          >
+            <span className='m-auto flex flex-col justify-center items-center gap-y-2 p-3 border border-gray-100 rounded-md'>
+              <Image
+                width={100}
+                height={150}
+                alt='Iamge'
+                className='object-cover object-center  p-1'
+                src={item.imageUrl}
+              />
+              <span className='text-sm text-left font-medium text-gray-900'>
+                {item.label.length > 10
+                  ? item.label.slice(0, 10) + '...'
+                  : item.label}
+              </span>
+            </span>
+          </a>
+        </div>
       ))}
     </div>
-  )
-}
+  );
+};

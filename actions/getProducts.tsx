@@ -19,7 +19,7 @@ const getProducts = async (query: Query): Promise<Product[]> => {
       sizeId: query.sizeId,
       categoryId: query.categoryId,
       isFeatured: query.isFeatured,
-      isDiscount: query.isDiscount
+      isDiscount: query.isDiscount,
     },
   });
 

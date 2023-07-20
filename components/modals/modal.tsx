@@ -2,7 +2,7 @@
 
 import { Dialog, Transition } from '@headlessui/react';
 import { FC, Fragment } from 'react';
-import { IconButton } from './ui/iconButton';
+import { IconButton } from '../ui/iconButton';
 import { X } from 'lucide-react';
 
 interface ModalProps {
