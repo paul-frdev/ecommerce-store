@@ -15,7 +15,11 @@ export const Info: FC<InfoProps> = ({ data }) => {
       <h2 className='text-3xl font-bold text-gray-900'>{data.name}</h2>
       <div className='mt-3 flex flex-col items-start justify-between'>
         <div className='text-2xl text-gray-900'>
-          <Currency value={data.price} />
+          <Currency
+            price={data.price}
+            isDiscount={data.isDiscount}
+            discount={data.priceDiscount}
+          />
         </div>
         <hr className='my-4' />
         <div className='flex flex-col gap-y-6'>

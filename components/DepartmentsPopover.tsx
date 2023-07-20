@@ -11,7 +11,7 @@ export const DepartmentsPopover: React.FC<PopoverProps> = ({
   content,
   children,
 }) => {
-  const [showPopover, setShowPopover] = useState(true);
+  const [showPopover, setShowPopover] = useState(false);
 
   const handlePopoverHover = () => {
     setShowPopover(true);

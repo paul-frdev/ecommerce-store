@@ -1,21 +1,41 @@
 'use client';
-import { cn, formattedPrice } from '@/lib/utils';
-import { Product } from '@/types';
+import { calculateDiscountedPrice, cn, formattedPrice } from '@/lib/utils';
 import React, { FC, useEffect, useState } from 'react';
 
 interface CurrencyProps {
-  data?: Product;
+  price: string;
+  discount?: string;
   isDiscount?: boolean;
 }
-export const Currency: FC<CurrencyProps> = ({ data, isDiscount }) => {
-  const [isMounted, setIsMounted] = useState(false);
 
-  const discountAmount = (+data!.price - +data!.priceDiscount) / 100;
-  const productWithDiscount = +data!.price - discountAmount;
+export const Currency: FC<CurrencyProps> = ({
+  price,
+  discount,
+  isDiscount,
+}) => {
+  const [isMounted, setIsMounted] = useState(false);
+  const [productWithDiscount, setProductWithDiscount] = useState<number | null>(
+    null
+  );
+
+  const priceToNumber = parseFloat(price);
+  const discountToNumber = parseFloat(discount as string);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (isNaN(priceToNumber) || isNaN(discountToNumber)) {
+      setProductWithDiscount(null);
+      return;
+    }
+    const calculatedDiscountedPrice = calculateDiscountedPrice(
+      priceToNumber,
+      discountToNumber
+    );
+    setProductWithDiscount(calculatedDiscountedPrice);
+  }, [discountToNumber, priceToNumber]);
 
   if (!isMounted) {
     return null;
@@ -29,11 +49,11 @@ export const Currency: FC<CurrencyProps> = ({ data, isDiscount }) => {
           isDiscount && 'line-through'
         )}
       >
-        {formattedPrice.format(+data!.price)}
+        {formattedPrice.format(priceToNumber)}
       </p>
-      {isDiscount && (
+      {isDiscount && productWithDiscount !== null && (
         <p className='text-3xl font-bold text-gray-600 pb-2'>
-          {formattedPrice.format(+productWithDiscount)}
+          {formattedPrice.format(productWithDiscount)}
         </p>
       )}
     </div>

@@ -29,6 +29,7 @@ const ProductPage: FC<ProductPageProps> = async ({ params }) => {
               {/* Info */}
               <Info data={product} />
             </div>
+            <div>{/* description and options */}</div>
           </div>
           <hr className='my-10' />
           <ProductList title='Suggested Products' items={suggestedProducts} />

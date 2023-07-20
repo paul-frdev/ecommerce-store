@@ -45,7 +45,7 @@ export const Summary = () => {
       <div className='mt-6 space-y-4'>
         <div className='flex items-center justify-between border-t border-gray-200 pt-4'>
           <p className='text-base font-medium text-gray-900'>Order total</p>
-          <Currency value={totalPrice.toString()} />
+          <Currency price={totalPrice.toString()} />
         </div>
       </div>
       <Button onClick={onCheckOut} className='w-full mt-6'>

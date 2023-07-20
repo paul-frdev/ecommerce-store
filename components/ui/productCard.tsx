@@ -1,5 +1,5 @@
 'use client';
-import React, { FC, MouseEventHandler } from 'react';
+import React, { FC, MouseEventHandler, useMemo, useState } from 'react';
 import Image from 'next/image';
 
 import { Product } from '@/types';
@@ -16,6 +16,7 @@ interface ProductCardProps {
   className?: string;
 }
 export const ProductCard: FC<ProductCardProps> = ({ data, className }) => {
+  // const [product, setProduct] = useState<Product>()
   const previewModal = usePreviewModal();
   const cart = useCart();
 
@@ -73,8 +74,12 @@ export const ProductCard: FC<ProductCardProps> = ({ data, className }) => {
         <p className='text-sm text-gray-500'>{data.category.name}</p>
       </div>
       {/* Price */}
-      <div className='flex items-cente justify-between'>
-        <Currency data={data} isDiscount={data.isDiscount} />
+      <div className='flex items-center justify-between'>
+        <Currency
+          price={data.price}
+          discount={data.priceDiscount}
+          isDiscount={data.isDiscount}
+        />
       </div>
     </div>
   );

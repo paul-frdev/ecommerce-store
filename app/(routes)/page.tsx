@@ -10,8 +10,6 @@ const HomePage = async () => {
   const products = await getProducts({ isFeatured: true });
   const productsSales = await getProducts({ isDiscount: true });
 
-  console.log(productsSales);
-
   const sliders = await getSliders('249f4f8f-de18-4975-8a74-a72d2a4d6263');
 
   const filteredProductsSales = productsSales.filter(

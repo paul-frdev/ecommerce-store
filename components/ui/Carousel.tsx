@@ -34,8 +34,6 @@ export const CarouselType: FC<CarouselProps> = ({
   deviceType,
   salesProducts,
 }) => {
-  console.log('salesProducts', salesProducts);
-
   return (
     <Carousel
       swipeable={true}

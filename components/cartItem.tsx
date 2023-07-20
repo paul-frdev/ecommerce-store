@@ -41,7 +41,7 @@ export const CartItem: FC<CartItemProps> = ({ item }) => {
               {item.size.name}
             </p>
           </div>
-          <Currency value={item.price} />
+          <Currency price={item.price} />
         </div>
       </div>
     </li>
